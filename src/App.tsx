@@ -54,8 +54,8 @@ export const App: React.FC = () => {
         <button
           type="button"
           className={classNames('button', {
-            'is-info': sortField === 'alphabetically',
-            'is-light': sortField !== 'alphabetically',
+            'is-info': sortField === SortField.Alphabetically,
+            'is-light': sortField !== SortField.Alphabetically,
           })}
           onClick={() => setSortField(SortField.Alphabetically)}
         >
@@ -65,8 +65,8 @@ export const App: React.FC = () => {
         <button
           type="button"
           className={classNames('button', {
-            'is-success': sortField === 'byLength',
-            'is-light': sortField !== 'byLength',
+            'is-success': sortField === SortField.ByLength,
+            'is-light': sortField !== SortField.ByLength,
           })}
           onClick={() => setSortField(SortField.ByLength)}
         >
@@ -88,8 +88,8 @@ export const App: React.FC = () => {
           <button
             type="button"
             className={classNames('button', {
-              'is-danger': SortField.None,
-              'is-light': !SortField.None,
+              'is-danger': sortField !== SortField.None || reversed,
+              'is-light': sortField === SortField.None && !reversed,
             })}
             onClick={() => reset()}
           >
